@@ -123,12 +123,12 @@ class MainActivity : AppCompatActivity(), UploadRequestBody.UploadCallBack {
             return
         }
 
-//        val parcelFileDescriptor =
-//            contentResolver.openFileDescriptor(selectedImage!!, "r", null)) ?: return
-//        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
-//        val file = File(cacheDir, contentResolver.getFileName(selectedImage!!))
-//        val outputStream = FileOutputStream(file)
-//        inputStream.copyTo(outputStream)
+        val parcelFileDescriptor =
+            contentResolver.openFileDescriptor(selectedImage!!, "r", null)?: return
+        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
+        val file = File(cacheDir, contentResolver.getFileName(selectedImage!!))
+        val outputStream = FileOutputStream(file)
+        inputStream.copyTo(outputStream)
 //
 
         val body = UploadRequestBody(file,  this)
